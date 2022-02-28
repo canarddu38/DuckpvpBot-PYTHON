@@ -12,7 +12,7 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send("pong")
     
-async def ping2(ctx):
+def ping2(ctx):
     await ctx.send("pong2")
 
 if __name__ == "__main__":
