@@ -3,8 +3,7 @@ import os
 
 class MyClient(discord.Client):
     async def on_ready(self):
-        await bot.change_presence(activity=discord.Streaming(name="DuckSploit V1.0.8", url=https://ducksploit.com))
-        print(f'Logged on as {self.user}!')
+        await bot.change_presence(activity=discord.Streaming(name="DuckSploit V1.0.8", url="https://ducksploit.com")
     async def on_message(self, message):
         if message.content.startswith('$hello'):
             await message.channel.send('Hello!')
