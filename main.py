@@ -11,7 +11,7 @@ class DSbot(discord.Client):
 
 
     async def on_member_join(member):
-        guild = bot.get_guild(880882906350882817) # <- Your Server (Guild) ID (Right-Click on Server Icon -> Copy ID)
+        guild = self.get_guild(880882906350882817) # <- Your Server (Guild) ID (Right-Click on Server Icon -> Copy ID)
         text = guild.get_channel(956682695100993616) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
         msg = await text.send(content ="member.avatar_url_as(size=1024)\nWELCOME " + member.mention + " to DUCKSPLOIT - SUPPORT! :heart:") 
 
@@ -71,7 +71,8 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                embed.footer("React with :tada: for a chance to win a prize!")
                embed.add_reaction("🎉")
                embed.color=0x00ff44
-
+               
+               guild = self.get_guild(880882906350882817)
                text = guild.get_channel(956682695100993616) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
                await text.send(embed=embed) 
 
