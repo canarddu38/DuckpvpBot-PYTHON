@@ -1,6 +1,7 @@
 import discord
 from discord import Webhook
 import os
+import requests
 
 class MyClient(discord.Client):
     async def on_ready(self):
