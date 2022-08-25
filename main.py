@@ -7,9 +7,11 @@ class MyClient(discord.Client):
         print("Ready!")
     async def on_message(self, message):
         if message.content.startswith('ds!help'):
-            embed=discord.Embed(title="DuckSploitBOT - help", description="""**help: ** ds!help""", color=0x00ff44)
+            embed=discord.Embed(title="DuckSploitBOT - help", description="""```**prefix: ** ds!```""", color=0x00ff44)
             await message.channel.send(embed=embed)
-        elif message.content.startswith('ds!test'):
+        elif message.content.startswith('ds!report'):
+            report = message.replace("ds!report ", "")
+            print("New report: "+report)
             await message.channel.send("hey")
 
 intents = discord.Intents.default()
