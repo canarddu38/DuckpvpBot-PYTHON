@@ -1,3 +1,7 @@
 discord.py
 requests
 aiohttp
+numpy
+PIL
+io
+asyncio
