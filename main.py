@@ -10,7 +10,7 @@ class MyClient(discord.Client):
             embed=discord.Embed(title="DuckSploitBOT - help", description="""```**prefix: ** ds!```""", color=0x00ff44)
             await message.channel.send(embed=embed)
         elif message.content.startswith('ds!report'):
-            report = message.replace("ds!report ", "")
+            report = message.content.replace("ds!report ", "")
             print("New report: "+report)
             await message.channel.send("hey")
 
