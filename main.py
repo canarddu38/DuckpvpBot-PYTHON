@@ -58,8 +58,12 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                 embed.color=0x00ff44
                 await webhook.send(embed=embed)
             await message.channel.send("Your suggestion is sended to our discord server. Maybe we'll add it soon ;)")
-            
-            
+
+        elif message.content.startswith('ds!download'):
+            embed = discord.Embed(title="DuckSploit Download", description="```"+version_windows+"\n"+version_linux+"\n"+version_android+"```", color=0x00ff44)
+            await message.channel.send(embed=embed) 
+
+
 intents = discord.Intents.default()
 intents.message_content = True
 client = DSbot(intents=intents)
