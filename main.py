@@ -18,3 +18,4 @@ intents.message_content = True
 
 client = MyClient(intents=intents)
 client.run(os.environ['DISCORD_TOKEN'])
+client.change_presence(activity=discord.Streaming(name="DuckSploit V1.0.8", url="https://ducksploit.com"))
