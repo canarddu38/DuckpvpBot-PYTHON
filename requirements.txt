@@ -2,6 +2,6 @@ discord.py
 requests
 aiohttp
 numpy
-pillow
+Pillow
 io
 asyncio
