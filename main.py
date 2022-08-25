@@ -63,7 +63,7 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
             embed = discord.Embed(title="DuckSploit Download", description="```"+version_windows+"\n"+version_linux+"\n"+version_android+"```", color=0x00ff44)
             await message.channel.send(embed=embed) 
 
-       elif message.content.startswith('ds!gcreate'):
+        elif message.content.startswith('ds!gcreate'):
            fullmessage = message.content.replace("ds!gcreate ", "").split(" ")
            if (fullmessage.length == 1):
                prize = fullmessage[0]
