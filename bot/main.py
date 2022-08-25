@@ -17,5 +17,5 @@ class MyClient(discord.Client):
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = DSbot(intents=intents)
+bot = DSbot(intents)
 bot.run(TOKEN)
