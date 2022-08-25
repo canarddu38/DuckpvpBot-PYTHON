@@ -3,7 +3,7 @@ import os
 
 class MyClient(discord.Client):
     async def on_ready(self):
-        discord.Client.change_presence(activity=discord.Streaming(name="DuckSploit V1.0.8", url="https://ducksploit.com"))
+        self.change_presence(activity=discord.Streaming(name="DuckSploit V1.0.8", url="https://ducksploit.com"))
         print("Ready!")
     async def on_message(self, message):
         if message.content.startswith('ds!help'):
