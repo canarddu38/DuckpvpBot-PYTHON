@@ -2,6 +2,7 @@ import discord
 from discord import Webhook
 import os
 import requests
+import aiohttp
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -16,13 +17,14 @@ report: report a bug to our developpers```""", color=0x00ff44)
             await message.channel.send(embed=embed)
             
         elif message.content.startswith('ds!report'):
-            report = message.content.replace("ds!report ", "")
-            print("New report: "+report)
-            webhook = Webhook.from_url('https://discord.com/api/webhooks/970321539662753822/OVw73XELom6qvTGNCNpQfZVZ3Rz6gFWQNHCSYJXw0cAoaH9mh0Jx_mZUgLHIXpFOGgqf', self)
-            embed = discord.Embed(title="New bug found", description="```"+report+"```")
-            embed.add_field(name="Author", value=message.author)
-            embed.add_field(name="Date", value=message.author)
-            await webhook.send(embed=embed)
+            async with aiohttp.ClientSession() as session:
+                report = message.content.replace("ds!report ", "")
+                print("New report: "+report)
+                webhook = Webhook.from_url('https://discord.com/api/webhooks/970321539662753822/OVw73XELom6qvTGNCNpQfZVZ3Rz6gFWQNHCSYJXw0cAoaH9mh0Jx_mZUgLHIXpFOGgqf', session=session)
+                embed = discord.Embed(title="New bug found", description="```"+report+"```")
+                embed.add_field(name="Author", value=message.author)
+                embed.add_field(name="Date", value=message.author)
+                await webhook.send(embed=embed)
             await message.channel.send("Your report is sended to our discord server. We'll fix it soon ;)")
             
         elif message.content.startswith('ds!versions'):
