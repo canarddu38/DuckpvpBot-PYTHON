@@ -6,7 +6,8 @@ class MyClient(discord.Client):
         print(f'Logged on as {self.user}!')
 
     async def on_message(self, message):
-        print(f'Message from {message.author}: {message.content}')
+        if message.content.startswith('$hello'):
+            await message.channel.send('Hello!')
 
 intents = discord.Intents.default()
 intents.message_content = True
