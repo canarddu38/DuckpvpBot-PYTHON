@@ -8,7 +8,9 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         if message.content.startswith('ds!help'):
             embed=discord.Embed(title="DuckSploitBOT - help", url="https://ducksploit.com/", description="This is an embed that will show how to build an embed and the different components", color=0x00ff44)
-            await message.channel.send(embed)
+            await message.channel.send(embed=embed)
+        elif message.content.startswith('ds!test'):
+            await message.channel.send("hey")
 
 intents = discord.Intents.default()
 intents.message_content = True
