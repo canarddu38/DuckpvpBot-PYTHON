@@ -74,9 +74,8 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                
                guild = self.get_guild(880882906350882817)
                text = guild.get_channel(956682695100993616) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
-               await text.send(content=embed) 
-               message.channel.send("Giveaway created :tada:")
-
+               await text.send(embed=embed) 
+               await message.channel.send("Giveaway created :tada:")
            else:
                message.channel.send("Usage: ds!gcreate <prize>")
 
