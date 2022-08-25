@@ -16,5 +16,5 @@ class DSbot(discord.Client):
        await ctx.send("pong")
 
     
-bot = DSbot(intents)
+bot = DSbot(intents=intents)
 bot.run(TOKEN)
