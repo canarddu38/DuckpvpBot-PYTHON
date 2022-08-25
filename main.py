@@ -63,6 +63,17 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
             embed = discord.Embed(title="DuckSploit Download", description="```"+version_windows+"\n"+version_linux+"\n"+version_android+"```", color=0x00ff44)
             await message.channel.send(embed=embed) 
 
+       elif message.content.startswith('ds!gcreate'):
+           fullmessage = message.content.replace("ds!gcreate ", "").split(" ")
+           if (fullmessage.length == 2):
+               prize = fullmessage[0]
+               time = fullmessage[1]
+               embed = discord.Embed(title=":confetti_ball: | Giveaway | :tada:", description="```"+suggest+"```")
+               embed.add_field(name="Author", value=message.author)
+               embed.color=0x00ff44
+           else:
+               message.channel.send("Usage: ds!gcreate <prize> <time (minutes)>")
+
 
 intents = discord.Intents.default()
 intents.message_content = True
