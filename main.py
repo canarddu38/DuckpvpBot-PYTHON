@@ -28,9 +28,9 @@ class DSbot(discord.Client):
 
 
     async def on_member_join(member):
-        guild = bot.get_guild(999999999999999) # <- Your Server (Guild) ID (Right-Click on Server Icon -> Copy ID)
-        text = guild.get_channel(999999999999999) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
-        filename = "your-file.png" # <- The name of the file that will be saved and deleted after (Should be PNG)
+        guild = bot.get_guild(880882906350882817) # <- Your Server (Guild) ID (Right-Click on Server Icon -> Copy ID)
+        text = guild.get_channel(956682695100993616) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
+        filename = "welcome.png" # <- The name of the file that will be saved and deleted after (Should be PNG)
 
         background = Image.open("welcome.png") # <- Background Image (Should be PNG)
 
@@ -52,7 +52,7 @@ class DSbot(discord.Client):
         msg = await text.send(file = discord.File(filename),content ="WELCOME " + member.mention + "! Please read the rules! :heart:") # <- The welcome Message Content put above the Image. "member.mention" @mentions the user
         await asyncio.sleep(5) # 5 Seconds of waiting time
         try: 
-            os.remove('C:/path/' + filename) # <- Change your path to where the Bot is located. Tries to delete the file again so your folder won't be full of Images. If it's already deleted nothing will happen
+            os.remove('./' + filename) # <- Change your path to where the Bot is located. Tries to delete the file again so your folder won't be full of Images. If it's already deleted nothing will happen
         except:
             pass
 
