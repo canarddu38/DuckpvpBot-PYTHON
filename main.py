@@ -65,14 +65,18 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
 
        elif message.content.startswith('ds!gcreate'):
            fullmessage = message.content.replace("ds!gcreate ", "").split(" ")
-           if (fullmessage.length == 2):
+           if (fullmessage.length == 1):
                prize = fullmessage[0]
-               time = fullmessage[1]
-               embed = discord.Embed(title=":confetti_ball: | Giveaway | :tada:", description="```"+suggest+"```")
-               embed.add_field(name="Author", value=message.author)
+               embed = discord.Embed(title=":tada: Giveaway! :tada:", description="Prize: "+prize+"\nHosted by "+message.author)
+               embed.footer("React with :tada: for a chance to win a prize!")
+               embed.add_reaction("🎉")
                embed.color=0x00ff44
+
+               text = guild.get_channel(956682695100993616) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
+               msg = await text.send(content =embed=embed) 
+
            else:
-               message.channel.send("Usage: ds!gcreate <prize> <time (minutes)>")
+               message.channel.send("Usage: ds!gcreate <prize>")
 
 
 intents = discord.Intents.default()
