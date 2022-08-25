@@ -24,6 +24,7 @@ report: report a bug to our developpers```""", color=0x00ff44)
                 embed = discord.Embed(title="New bug found", description="```"+report+"```")
                 embed.add_field(name="Author", value=message.author)
                 embed.add_field(name="Date", value=message.author)
+                embed.color=0x00ff44
                 await webhook.send(embed=embed)
             await message.channel.send("Your report is sended to our discord server. We'll fix it soon ;)")
             
@@ -35,7 +36,7 @@ report: report a bug to our developpers```""", color=0x00ff44)
             response = requests.get(f"""https://raw.githubusercontent.com/canarddu38/DUCKSPLOIT/root/hacker/android/version.txt""")
             version_android = "Android: "+response.text
             
-            embed = discord.Embed(title="DuckSploit lastest versions", description="```"+version_windows+"\n"+version_linux+"\n"+version_android+"```")
+            embed = discord.Embed(title="DuckSploit lastest versions", description="```"+version_windows+"\n"+version_linux+"\n"+version_android+"```", color=0x00ff44)
             await message.channel.send(embed=embed)
             
 
