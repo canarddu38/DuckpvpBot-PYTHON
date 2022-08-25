@@ -68,11 +68,11 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                prize = fullmessage[0]
                embed = discord.Embed(title=":tada: Giveaway! :tada:", description="Prize: "+prize+"\nHosted by "+message.author)
                embed.footer("React with :tada: for a chance to win a prize!")
-               embed.add_reaction("🎉")
                embed.color=0x00ff44
                
                channel = self.get_channel(956682695100993616) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
-               await channel.send(embed=embed) 
+               msg = await channel.send(embed=embed)
+               await msg.add_reaction("🎉") 
                await message.channel.send("Giveaway created :tada:")
            else:
                message.channel.send("Usage: ds!gcreate <prize>")
