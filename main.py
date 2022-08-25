@@ -7,10 +7,10 @@ class MyClient(discord.Client):
         print("Ready!")
     async def on_message(self, message):
         if message.content.startswith('ds!help'):
-            embed=discord.Embed(title="DuckSploitBOT - help", description="""```**prefix: ** ds!
-            **help: ** get commands list
-            **versions: ** get lastest versions of DuckSploit
-            **report: ** report a bug to our developpers```""", color=0x00ff44)
+            embed=discord.Embed(title="DuckSploitBOT - help", description="""```prefix: ds!
+help: get commands list
+versions: get lastest versions of DuckSploit
+report: report a bug to our developpers```""", color=0x00ff44)
             await message.channel.send(embed=embed)
             
         elif message.content.startswith('ds!report'):
