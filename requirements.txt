@@ -3,5 +3,4 @@ requests
 aiohttp
 numpy
 Pillow
-io
 asyncio
