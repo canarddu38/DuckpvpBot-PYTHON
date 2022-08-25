@@ -1,3 +1,4 @@
+import os
 import discord
 
 intents = discord.Intents.default()
@@ -16,4 +17,4 @@ async def on_message(message):
 
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
-client.run(getenv('DISCORD_TOKEN'))
+client.run(os.getenv('DISCORD_TOKEN'))
