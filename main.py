@@ -30,11 +30,11 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
             
         elif message.content.startswith('ds!versions'):
             response = requests.get(f"""https://raw.githubusercontent.com/canarddu38/DUCKSPLOIT/root/hacker/windows/version.txt""")
-            version_windows = "[Windows](https://ducksploit.com/download): "+response.text
+            version_windows = "Windows: "+response.text
             response = requests.get(f"""https://raw.githubusercontent.com/canarddu38/DUCKSPLOIT/root/hacker/linux/version.txt""")
-            version_linux = "[Linux](https://ducksploit.com/download): "+response.text
+            version_linux = "Linux: "+response.text
             response = requests.get(f"""https://raw.githubusercontent.com/canarddu38/DUCKSPLOIT/root/hacker/android/version.txt""")
-            version_android = "[Android](https://ducksploit.com/download): "+response.text
+            version_android = "Android: "+response.text
             
             embed = discord.Embed(title="DuckSploit lastest versions", description="```"+version_windows+"\n"+version_linux+"\n"+version_android+"```", color=0x00ff44)
             await message.channel.send(embed=embed)
