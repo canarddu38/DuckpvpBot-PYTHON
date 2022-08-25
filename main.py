@@ -3,6 +3,10 @@ from discord import Webhook
 import os
 import requests
 import aiohttp
+import numpy as np
+from PIL import Image, ImageChops, ImageDraw, ImageFont
+from io import BytesIO
+import asyncio
 
 class DSbot(discord.Client):
     def circle(pfp,size = (215,215)): 
