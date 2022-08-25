@@ -1,4 +1,5 @@
 import discord
+from discord import Webhook, AsyncWebhookAdapter
 import os
 
 class MyClient(discord.Client):
