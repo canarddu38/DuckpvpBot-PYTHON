@@ -23,7 +23,7 @@ class MyClient(discord.Client):
             webhook.send(embed=embed)
             await message.channel.send("Your report is sended to our discord server. We'll fix it soon ;)")
             
-        elif message.content.startswith('ds!versions')
+        elif message.content.startswith('ds!versions'):
             response = requests.get(f"""https://raw.githubusercontent.com/canarddu38/DUCKSPLOIT/root/hacker/windows/version.txt""")
             version_windows = "Windows: "+response.json()
             response = requests.get(f"""https://raw.githubusercontent.com/canarddu38/DUCKSPLOIT/root/hacker/linux/version.txt""")
