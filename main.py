@@ -73,7 +73,7 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                embed.color=0x00ff44
 
                text = guild.get_channel(956682695100993616) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
-               msg = await text.send(content =embed=embed) 
+               await text.send(embed=embed) 
 
            else:
                message.channel.send("Usage: ds!gcreate <prize>")
