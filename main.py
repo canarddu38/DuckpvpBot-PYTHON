@@ -3,6 +3,7 @@ import os
 
 
 class MyClient(discord.Client):
+    activity = discord.Streaming(name="test", url="https://ducksploit.com")
     async def on_ready(self):
         print("Ready!")
     async def on_message(self, message):
