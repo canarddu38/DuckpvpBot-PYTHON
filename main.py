@@ -93,7 +93,7 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
 
         elif message.content.startswith('newdsprouser'):
             fullmessage = message.content.replace("newdsprouser ", "")
-            member = ctx.message.author
+            member = message.author
             print(member)
             role = get(member.server.roles, name="Test")
             await self.add_roles(member, role)
