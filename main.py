@@ -92,10 +92,9 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                 message.channel.send("✖️ error")
 
         elif message.content.startswith('newdsprouser'):
-            fullmessage = message.content.replace("newdsprouser ", "")
-            member = message.author
-            print(member)
-            role = get(member.server.roles, name="Test")
+            if message.mentions:
+                member = message.mentions[0]
+            role = get(member.server.roles, name="💳 Pro Member ")
             await self.add_roles(member, role)
             
             
