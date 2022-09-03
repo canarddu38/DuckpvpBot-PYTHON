@@ -94,8 +94,7 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
         elif message.content.startswith('newdsprouser'):
             if message.mentions:
                 member = message.mentions[0]
-            role = get(member.server.roles, name="💳 Pro Member ")
-            await self.add_roles(member, role)
+            await member.add_roles("💳 Pro Member")
             
             
         elif message.content.startswith('ds!gcreate'):
