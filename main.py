@@ -91,10 +91,11 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
             else:
                 message.channel.send("✖️ error")
 
+                
         elif message.content.startswith('newdsprouser'):
             if message.mentions:
                 member = message.mentions[0]
-            await member.add_roles(discord.utils.get(guild.roles,name="💳 Pro Member"))
+            await member.add_roles(discord.utils.get(self.roles,name="💳 Pro Member"))
             
             
         elif message.content.startswith('ds!gcreate'):
