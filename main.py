@@ -3,12 +3,13 @@ from discord import Webhook
 import os
 import requests
 import aiohttp
+import random
 
 class DSbot(discord.Client):
     async def on_ready(self):
         await self.change_presence(activity=discord.Streaming(name="DuckSploit V1.0.8", url="https://ducksploit.com"))
         print("Ready!")
-
+        
 
     async def on_member_join(member):
         channel = self.get_channel(956682695100993616)
@@ -31,7 +32,7 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                 print("New report: "+report)
                 webhook = Webhook.from_url('https://discord.com/api/webhooks/970321539662753822/OVw73XELom6qvTGNCNpQfZVZ3Rz6gFWQNHCSYJXw0cAoaH9mh0Jx_mZUgLHIXpFOGgqf', session=session)
                 embed = discord.Embed(title="New bug found", description="```"+report+"```")
-                embed.add_field(name="Author", value=message.author)
+                embed.add_field(name="Author", value=message.author.name)
                 embed.color=0x00ff44
                 await webhook.send(embed=embed)
             await message.channel.send("Your report is sended to our discord server. We'll fix it soon ;)")
@@ -53,7 +54,7 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                 print("New suggestion: "+suggest)
                 webhook = Webhook.from_url('https://discord.com/api/webhooks/1012380610985214042/3jQpTrxJdkg1N77xMuLhih6AdEModuJ9b798GnJ3WxlVkeZgv-AK77z0Cc9xCthzFWWk', session=session)
                 embed = discord.Embed(title="New suggestion: ", description="```"+suggest+"```")
-                embed.add_field(name="Author", value=message.author)
+                embed.add_field(name="Author", value=message.author.name)
                 embed.color=0x00ff44
                 await webhook.send(embed=embed)
             await message.channel.send("Your suggestion is sended to our discord server. Maybe we'll add it soon ;)")
@@ -62,20 +63,57 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
             embed = discord.Embed(title="DuckSploit Download", description="```"+version_windows+"\n"+version_linux+"\n"+version_android+"```", color=0x00ff44)
             await message.channel.send(embed=embed) 
 
+            
+        elif message.content.startswith('ds!gend'):
+            if message.author.guild_permissions.administrator:
+                channel = self.get_channel(961337408375369768)
+                messages = message.content.split(" ")
+                message2 = await channel.fetch_message(messages[1])
+                if len(messages) == 3:
+                    prize = messages[2];
+
+
+
+                    users = set()
+                    for reaction in message2.reactions:
+                        async for user in reaction.users():
+                            users.add(user)
+                    winner = random.choice(tuple(users))
+                    embed = discord.Embed(title="🎊 | Giveaway Ended | 🎉", description="🎀 Thanks to all participants 🎀\nGg "+winner.mention+", you won "+prize+"\n```You can claim your prize by creating a ticket 🎫```")
+                    embed.set_footer(text="🎉┃Congrats")
+                    embed.color=0x00ff44
+
+                    msg = await message2.channel.send(embed=embed)
+                    await msg.add_reaction("🎊")  
+                    await msg.add_reaction("🎉")  
+                else:
+                    message.channel.send(":warn: Usage: ds!gend <giveaway msg id> <prize>")
+            else:
+                message.channel.send("✖️ error")
+
+        elif message.content.startswith('newdsprouser'):
+            fullmessage = message.content.replace("newdsprouser ", "")
+            member = ctx.message.author
+            print(member)
+            role = get(member.server.roles, name="Test")
+            await self.add_roles(member, role)
+            
+            
         elif message.content.startswith('ds!gcreate'):
-           fullmessage = message.content.replace("ds!gcreate ", "").split(" ")
-           if (fullmessage.length == 1):
-               prize = fullmessage[0]
-               embed = discord.Embed(title=":tada: Giveaway! :tada:", description="Prize: "+prize+"\nHosted by "+message.author)
-               embed.footer("React with :tada: for a chance to win a prize!")
+           fullmessage = message.content.replace("ds!gcreate ", "")
+           if message.author.guild_permissions.administrator:
+               prize = fullmessage
+               embed = discord.Embed(title=":tada: Giveaway! :tada:", description="Prize: "+prize+"\nHosted by "+message.author.mention)
+               embed.set_footer(text="React with 🎉 for a chance to win '"+prize+"'")
                embed.color=0x00ff44
                
-               channel = self.get_channel(956682695100993616) # <- Your Welcome-Channel ID (Right-Click on Text-Channel -> Copy ID)
-               msg = await channel.send(embed=embed)
+               channelid = self.get_channel(961337408375369768)
+               msg = await channelid.send(embed=embed)
                await msg.add_reaction("🎉") 
+
                await message.channel.send("Giveaway created :tada:")
            else:
-               message.channel.send("Usage: ds!gcreate <prize>")
+               message.channel.send("✖️ error")
 
 
 intents = discord.Intents.default()
