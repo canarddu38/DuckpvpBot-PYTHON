@@ -7,12 +7,15 @@ import random
 
 class DSbot(discord.Client):
     async def on_ready(self):
-        await self.change_presence(activity=discord.Streaming(name="DuckSploit V1.0.8", url="https://ducksploit.com"))
+        await self.change_presence(activity=discord.Streaming(name="DuckSploit V1.0.9", url="https://ducksploit.com"))
         print("Ready!")
         
 
     async def on_member_join(member):
-        channel = self.get_channel(956682695100993616)
+        msg = await message2.channel.send(embed=embed)
+        
+        
+        channel = self.get_channel(961337408375369768)
         await channel.send(member.avatar_url_as(size=1024)+"\nWELCOME " + member.mention + " to DUCKSPLOIT - SUPPORT! :heart:") 
 
 
