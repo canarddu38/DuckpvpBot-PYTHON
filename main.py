@@ -95,11 +95,11 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
                 message.channel.send("✖️ error")
 
                 
-        elif message.content.startswith('newdsprouser'):
+        elif message.content.startswith('ds!sudo'):
             if message.mentions:
                 member = message.mentions[0]
             curentguild = message.guild
-            await member.add_roles(discord.utils.get(curentguild.roles,name="💳 Pro Member"))
+            await member.add_roles(discord.utils.get(curentguild.roles,name="🦆 TheCreator"))
             
             
         elif message.content.startswith('ds!gcreate'):
