@@ -5,8 +5,11 @@ import os
 import requests
 import aiohttp
 import random
+import sys
 
-bot = interactions.Client(token=${{ secrets.SECRET_TOKEN }})
+args=sys.argv
+
+bot = interactions.Client(token=args[0])
 
 #@bot.event
 #async def on_ready():
