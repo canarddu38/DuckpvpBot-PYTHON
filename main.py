@@ -6,7 +6,7 @@ import requests
 import aiohttp
 import random
 
-bot = interactions.Client(token=token)
+bot = interactions.Client(token=${{ secrets.SECRET_TOKEN }})
 
 #@bot.event
 #async def on_ready():
