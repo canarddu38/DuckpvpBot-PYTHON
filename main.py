@@ -174,32 +174,4 @@ async def gcreate(ctx: interactions.CommandContext, prize: str):
 	else:
 		ctx.send("✖️ error")
 
-bot.start()sage2.channel.send(embed=embed)
-		await msg.add_reaction("🎊")  
-		await msg.add_reaction("🎉")  
-	else:
-		ctx.send("✖️ error")
-            
-            
-@bot.command(
-    name="gcreate",
-    description="Create giveaway",
-    scope=880882906350882817,
-    options=[
-        interactions.Option(
-            name="prize",
-            description="prize",
-            type=interactions.OptionType.STRING,
-            required=True
-        )
-    ]
-)
-async def gcreate(ctx: interactions.CommandContext, prize: str):
-	if message.author.guild_permissions.administrator:
-		embed = discord.Embed(title=":tada: Giveaway! :tada:", description="Prize: "+prize+"\nHosted by "+ctx.author.mention)
-		embed.set_footer(text="React with 🎉 for a chance to win '"+prize+"'")
-		embed.color=0x00ff44
-               
-		channelid = ctx.get_channel(961337408375369768)
-		msg = await channelid.send(embed=embed)
-		await msg.a
+bot.start()
