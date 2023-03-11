@@ -52,7 +52,7 @@ async def report(ctx: interactions.CommandContext, description: str):
     async with aiohttp.ClientSession() as session:
         report = description
         print("New report: "+report)
-        webhook = Webhook.from_url('https://discord.com/api/webhooks/970321539662753822/OVw73XELom6qvTGNCNpQfZVZ3Rz6gFWQNHCSYJXw0cAoaH9mh0Jx_mZUgLHIXpFOGgqf', session=session)
+        webhook = Webhook.from_url('https://discord.com/api/webhooks/970321539662753822/pOVw73XELom6qvTGNCNpQfZVZ3Rz6gFWQNHCSYJXw0cAoaH9mh0Jx_mZUgLHIXpFOGgqfo', session=session)
         embed = discord.Embed(title="New bug found", description="```"+report+"```")
         embed.add_field(name="Author", value=message.author.name)
         embed.color=0x00ff44
@@ -98,7 +98,7 @@ async def report(ctx: interactions.CommandContext, description: str):
 	async with aiohttp.ClientSession() as session:
 		suggest = description
 		print("New suggestion: "+suggest)
-		webhook = Webhook.from_url('https://discord.com/api/webhooks/1012380610985214042/3jQpTrxJdkg1N77xMuLhih6AdEModuJ9b798GnJ3WxlVkeZgv-AK77z0Cc9xCthzFWWk', session=session)
+		webhook = Webhook.from_url('https://discord.com/api/webhooks/1012380610985214042/p3jQpTrxJdkg1N77xMuLhih6AdEModuJ9b798GnJ3WxlVkeZgv-AK77z0Cc9xCthzdFWWk', session=session)
 		embed = discord.Embed(title="New suggestion: ", description="```"+suggest+"```")
 		embed.add_field(name="Author", value=ctx.author.name)
 		embed.color=0x00ff44
