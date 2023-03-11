@@ -9,7 +9,7 @@ import sys
 
 args=sys.argv
 
-bot = interactions.Client(token=args[0])
+bot = interactions.Client(token=args[1])
 
 #@bot.event
 #async def on_ready():
