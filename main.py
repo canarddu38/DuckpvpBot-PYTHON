@@ -29,16 +29,6 @@ suggest: suggest an idea to our developpers```""", color=0x00ff44)
     await ctx.send(embed=embed)
     
 @bot.command(
-	name="displayembed",
-    description="Get command list",
-    scope=880882906350882817
-)
-async def displayembed(ctx):
-    embed = discord.Embed(title="Your title here", description="Your desc here") #,color=Hex code
-    embed.add_field(name="Name", value="you can make as much as fields you like to")
-    await ctx.send(embed=embed)
-    
-@bot.command(
     name="report",
     description="Report a bug to our team",
     scope=880882906350882817,
